@@ -1,10 +1,6 @@
 import subprocess
+from datetime import datetime
 
-version = '0.0.1'
-
-try:
-    version = subprocess.check_output(['git','log','-1','--pretty="%h"']).strip('\"\n')
-except:
-    pass
+version = datetime.now().strftime("%Y%m%d%H%M%S")
 
 __version__ = version
