@@ -91,18 +91,15 @@ class CoffeeTasting(models.Model):
     coffee = models.ForeignKey(Coffee)
     tasted_on = models.DateField()
     prep_method = models.IntegerField(choices = PREP_CHOICES)
-    aroma_tags = TaggableManager()
     aroma_score = models.DecimalField(max_digits = 3, decimal_places = 1)
-    taste_tags = TaggableManager()
     taste_score = models.DecimalField(max_digits = 3, decimal_places = 1)
-    body_tags = TaggableManager()
     body_score = models.DecimalField(max_digits = 3, decimal_places = 1)
-    acidity_tags = TaggableManager()
     acidity_score = models.DecimalField(max_digits = 3, decimal_places = 1)
-    aftertast_tags = TaggableManager()
     aftertaste_score = models.DecimalField(max_digits = 3, decimal_places = 1)
     notes = models.TextField()
     overall_score = models.DecimalField(max_digits = 4, decimal_places = 1, editable = False)
+    
+    tags = TaggableManager()
 
     def __unicode__(self):
         return u"%s tasted on %s (%d)" % (self.coffee.name, self.tasted_on, self.overall_score)
