@@ -1,12 +1,12 @@
-django-ateoto-cupping
+django-ateoto-tasting
 ====================
 
 Install
 -------
 
-django-ateoto-cupping can be installed using pip.
+django-ateoto-tasting can be installed using pip.
 
 ::
 
-    pip install git+https://github.com/Ateoto/django-ateoto-cupping.git
+    pip install git+https://github.com/Ateoto/django-ateoto-tasting.git
 
