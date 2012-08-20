@@ -1,6 +1,1 @@
-import subprocess
-from datetime import datetime
-
-version = datetime.now().strftime("%Y%m%d%H%M%S")
-
-__version__ = version
+__version__ = '0.0.0'
