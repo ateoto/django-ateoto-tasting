@@ -8,6 +8,9 @@ class Roaster(models.Model):
     website = models.URLField(blank = True)
     slug = models.SlugField(editable = False)
     
+    class Meta:
+        app_label = 'ateoto_tasting'
+
     def __unicode__(self):
         return u"%s" % (self.name)
                             
@@ -16,11 +19,14 @@ class Roaster(models.Model):
             self.slug = slugify(self.name)
         
         return super(Roaster, self).save(*args, **kwargs)
-
+    
 class Origin(models.Model):
     name = models.CharField(max_length = 100)
     notes = models.TextField(blank = True)
     slug = models.SlugField(editable = False)
+
+    class Meta:
+        app_label = 'ateoto_tasting'
 
     def __unicode__(self):
         return u"%s" % (self.name)
@@ -48,6 +54,9 @@ class Coffee(models.Model):
     origin_notes = models.CharField(max_length = 100, blank = True)
     process = models.IntegerField(choices = PROCESSING_CHOICES)
     slug = models.SlugField(editable = False)
+
+    class Meta:
+        app_label = 'ateoto_tasting'
 
     def __unicode__(self):
         return u"%s" % (self.name)
@@ -100,6 +109,9 @@ class CoffeeTasting(models.Model):
     overall_score = models.DecimalField(max_digits = 4, decimal_places = 1, editable = False)
     
     tags = TaggableManager()
+
+    class Meta:
+        app_label = 'ateoto_tasting'
 
     def __unicode__(self):
         return u"%s tasted on %s (%d)" % (self.coffee.name, self.tasted_on, self.overall_score)
